@@ -9,6 +9,7 @@
 - [Pawn Your Car](https://cash-4-gold.co.za/cars.html)
 - [Anything of Value](https://cash-4-gold.co.za/anything-of-value.html)
 - [About Us](https://cash-4-gold.co.za/about.html)
+- [Blog & Guides](https://cash-4-gold.co.za/blog/)
 - [Contact](https://cash-4-gold.co.za/contact.html)
 - [Privacy Policy](https://cash-4-gold.co.za/privacy.html)
 
@@ -22,3 +23,7 @@
 - Hours: Monday to Friday, 9:00 - 22:00
 - Licensing: licensed gold buyer; SAPS-registered Second-Hand Goods dealer (Second-Hand Goods Act 6 of 2009)
 - Pricing basis: gold rates are linked to the daily gold spot price and the USD/ZAR exchange rate; final offers are confirmed after on-the-spot testing and weighing in front of the customer
+
+## Blog
+
+Guides for customers deciding how to sell or pawn: [How We Test Your Gold](https://cash-4-gold.co.za/blog/how-we-test-your-gold.html), [How Gold Prices Are Calculated](https://cash-4-gold.co.za/blog/how-gold-prices-are-calculated.html), [Pawning vs Selling](https://cash-4-gold.co.za/blog/pawning-vs-selling.html)
