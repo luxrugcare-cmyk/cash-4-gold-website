@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e3c896"/>
+      <stop offset="50%" stop-color="#c9a56e"/>
+      <stop offset="100%" stop-color="#a8854f"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="#0c1725"/>
+  <circle cx="32" cy="32" r="30" fill="none" stroke="url(#g)" stroke-width="3"/>
+  <circle cx="32" cy="32" r="24" fill="none" stroke="#c9a56e" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="32" y="41" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="url(#g)">C4G</text>
+</svg>

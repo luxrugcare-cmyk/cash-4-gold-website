@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cash-4-gold.co.za/sitemap.xml

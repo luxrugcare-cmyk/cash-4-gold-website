@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <linearGradient id="goldFace" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0%" stop-color="#f6e6c0"/>
+      <stop offset="22%" stop-color="#dcb87e"/>
+      <stop offset="48%" stop-color="#c9a56e"/>
+      <stop offset="72%" stop-color="#9a7743"/>
+      <stop offset="88%" stop-color="#b08d52"/>
+      <stop offset="100%" stop-color="#d6b87f"/>
+    </linearGradient>
+    <linearGradient id="goldEdge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f2ddb0"/>
+      <stop offset="18%" stop-color="#d9b87f"/>
+      <stop offset="50%" stop-color="#7c5f36"/>
+      <stop offset="82%" stop-color="#8f6f3e"/>
+      <stop offset="100%" stop-color="#e8cf9d"/>
+    </linearGradient>
+    <linearGradient id="goldMono" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0%" stop-color="#f8ecd0"/>
+      <stop offset="45%" stop-color="#d3ab6f"/>
+      <stop offset="100%" stop-color="#8a6a3b"/>
+    </linearGradient>
+    <linearGradient id="engrave" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4f3b1e"/>
+      <stop offset="100%" stop-color="#7d6038"/>
+    </linearGradient>
+    <radialGradient id="spot" cx="32%" cy="26%" r="45%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.32"/>
+      <stop offset="55%" stop-color="#fff" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#c9a56e" stop-opacity="0.3"/>
+      <stop offset="60%" stop-color="#c9a56e" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#c9a56e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bgDepth" cx="50%" cy="42%" r="75%">
+      <stop offset="0%" stop-color="#15243a"/>
+      <stop offset="100%" stop-color="#081019"/>
+    </radialGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0"/>
+      <feComposite operator="over" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="800" fill="url(#bgDepth)"/>
+  <rect width="800" height="800" fill="url(#glow)"/>
+
+  <!-- backdrop light streaks -->
+  <ellipse cx="560" cy="180" rx="280" ry="90" fill="#263c58" opacity="0.35" filter="url(#soft)" transform="rotate(-18 560 180)"/>
+  <ellipse cx="200" cy="640" rx="260" ry="80" fill="#1a2b42" opacity="0.4" filter="url(#soft)" transform="rotate(-18 200 640)"/>
+
+  <!-- contact shadow -->
+  <ellipse cx="400" cy="700" rx="300" ry="46" fill="#020609" opacity="0.7" filter="url(#soft)"/>
+  <ellipse cx="400" cy="688" rx="250" ry="34" fill="#050b12" opacity="0.6" filter="url(#soft)"/>
+
+  <!-- ambient glow rings -->
+  <circle cx="400" cy="390" r="330" fill="none" stroke="#c9a56e" stroke-opacity="0.14" stroke-width="1.5"/>
+  <circle cx="400" cy="390" r="356" fill="none" stroke="#c9a56e" stroke-opacity="0.06" stroke-width="1"/>
+
+  <!-- coin body -->
+  <circle cx="400" cy="390" r="294" fill="url(#goldEdge)"/>
+  <circle cx="400" cy="390" r="280" fill="#6b5230"/>
+  <circle cx="400" cy="390" r="274" fill="url(#goldFace)"/>
+
+  <!-- reeded edge -->
+  <g stroke="#5a4426" stroke-opacity="0.6" stroke-width="3">
+    <line x1="400" y1="98" x2="400" y2="118"/>
+    <line x1="400" y1="662" x2="400" y2="682"/>
+    <line x1="108" y1="390" x2="128" y2="390"/>
+    <line x1="672" y1="390" x2="692" y2="390"/>
+    <line x1="192" y1="182" x2="206" y2="196"/>
+    <line x1="594" y1="584" x2="608" y2="598"/>
+    <line x1="608" y1="182" x2="594" y2="196"/>
+    <line x1="206" y1="584" x2="192" y2="598"/>
+  </g>
+
+  <!-- inner bevel: dark ring + light rim -->
+  <circle cx="400" cy="390" r="244" fill="none" stroke="#5f4726" stroke-width="5" stroke-opacity="0.85"/>
+  <circle cx="400" cy="390" r="240" fill="none" stroke="#f4e3bb" stroke-width="1.6" stroke-opacity="0.75"/>
+  <circle cx="400" cy="390" r="236" fill="none" stroke="#8a6a3b" stroke-width="2" stroke-opacity="0.5"/>
+
+  <!-- engraved arcs -->
+  <defs>
+    <path id="arcTop" d="M 170 390 A 230 230 0 0 1 630 390"/>
+    <path id="arcBottom" d="M 174 390 A 226 226 0 0 0 626 390"/>
+  </defs>
+  <text font-family="Georgia, serif" font-size="29" letter-spacing="11" fill="#4f3b1e">
+    <textPath href="#arcTop" startOffset="50%" text-anchor="middle">CASH 4 GOLD</textPath>
+  </text>
+  <text font-family="Georgia, serif" font-size="29" letter-spacing="11" fill="#f0d9a8" opacity="0.55" dx="0" dy="1.4" transform="translate(0,-1.4)">
+    <textPath href="#arcTop" startOffset="50%" text-anchor="middle">CASH 4 GOLD</textPath>
+  </text>
+  <text font-family="Georgia, serif" font-size="21" letter-spacing="7" fill="#4f3b1e" opacity="0.95">
+    <textPath href="#arcBottom" startOffset="50%" text-anchor="middle">JOHANNESBURG · FINE VALUE</textPath>
+  </text>
+
+  <!-- laurel branches with depth -->
+  <g fill="none" stroke="#5f4726" stroke-width="6" stroke-linecap="round" opacity="0.9">
+    <path d="M 248 482 Q 300 562 396 588"/>
+    <path d="M 552 482 Q 500 562 404 588"/>
+  </g>
+  <g fill="none" stroke="#e8cf9d" stroke-width="1.6" stroke-linecap="round" opacity="0.5">
+    <path d="M 248 480 Q 300 560 396 586"/>
+    <path d="M 552 480 Q 500 560 404 586"/>
+  </g>
+  <g>
+    <ellipse cx="266" cy="502" rx="17" ry="7.5" fill="#77592f" transform="rotate(38 266 502)"/>
+    <ellipse cx="264" cy="500" rx="17" ry="7.5" fill="#a5814c" transform="rotate(38 264 500)"/>
+    <ellipse cx="291" cy="529" rx="17" ry="7.5" fill="#77592f" transform="rotate(32 291 529)"/>
+    <ellipse cx="289" cy="527" rx="17" ry="7.5" fill="#a5814c" transform="rotate(32 289 527)"/>
+    <ellipse cx="320" cy="551" rx="17" ry="7.5" fill="#77592f" transform="rotate(24 320 551)"/>
+    <ellipse cx="318" cy="549" rx="17" ry="7.5" fill="#a5814c" transform="rotate(24 318 549)"/>
+    <ellipse cx="352" cy="567" rx="17" ry="7.5" fill="#77592f" transform="rotate(14 352 567)"/>
+    <ellipse cx="350" cy="565" rx="17" ry="7.5" fill="#a5814c" transform="rotate(14 350 565)"/>
+    <ellipse cx="534" cy="502" rx="17" ry="7.5" fill="#77592f" transform="rotate(-38 534 502)"/>
+    <ellipse cx="536" cy="500" rx="17" ry="7.5" fill="#a5814c" transform="rotate(-38 536 500)"/>
+    <ellipse cx="509" cy="529" rx="17" ry="7.5" fill="#77592f" transform="rotate(-32 509 529)"/>
+    <ellipse cx="511" cy="527" rx="17" ry="7.5" fill="#a5814c" transform="rotate(-32 511 527)"/>
+    <ellipse cx="480" cy="551" rx="17" ry="7.5" fill="#77592f" transform="rotate(-24 480 551)"/>
+    <ellipse cx="482" cy="549" rx="17" ry="7.5" fill="#a5814c" transform="rotate(-24 482 549)"/>
+    <ellipse cx="448" cy="567" rx="17" ry="7.5" fill="#77592f" transform="rotate(-14 448 567)"/>
+    <ellipse cx="450" cy="565" rx="17" ry="7.5" fill="#a5814c" transform="rotate(-14 450 565)"/>
+  </g>
+
+  <!-- monogram with engraved depth -->
+  <text x="400" y="413" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="172" font-weight="500" fill="#4f3b1e" opacity="0.85" dx="2.5" dy="3">C4G</text>
+  <text x="400" y="413" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="172" font-weight="500" fill="url(#goldMono)" stroke="#5f4726" stroke-width="1.6">C4G</text>
+  <text x="400" y="413" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="172" font-weight="500" fill="none" stroke="#f8ecd0" stroke-width="0.7" opacity="0.65" dx="-0.8" dy="-1.2">C4G</text>
+
+  <!-- top star -->
+  <path d="M400 126 l8 20 20 8 -20 8 -8 20 -8 -20 -20 -8 20 -8 z" fill="#6b5230"/>
+  <path d="M400 124 l8 20 20 8 -20 8 -8 20 -8 -20 -20 -8 20 -8 z" fill="#d3ab6f"/>
+
+  <!-- light: key highlight + secondary bounce -->
+  <ellipse cx="308" cy="262" rx="155" ry="95" fill="#fff" opacity="0.1" transform="rotate(-28 308 262)"/>
+  <ellipse cx="290" cy="245" rx="90" ry="52" fill="#fff" opacity="0.14" transform="rotate(-28 290 245)"/>
+  <ellipse cx="520" cy="540" rx="120" ry="60" fill="#fff" opacity="0.05" transform="rotate(-28 520 540)"/>
+  <circle cx="400" cy="390" r="274" fill="url(#spot)"/>
+
+  <!-- subtle vignette on coin -->
+  <circle cx="400" cy="390" r="274" fill="none" stroke="#3a2b14" stroke-width="26" opacity="0.25"/>
+</svg>
