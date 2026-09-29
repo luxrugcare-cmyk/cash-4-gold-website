@@ -10,6 +10,7 @@
 - [Anything of Value](https://cash-4-gold.co.za/anything-of-value.html)
 - [About Us](https://cash-4-gold.co.za/about.html)
 - [Blog & Guides](https://cash-4-gold.co.za/blog/)
+- [Service Areas](https://cash-4-gold.co.za/areas/)
 - [Contact](https://cash-4-gold.co.za/contact.html)
 - [Privacy Policy](https://cash-4-gold.co.za/privacy.html)
 
@@ -26,4 +27,14 @@
 
 ## Blog
 
-Guides for customers deciding how to sell or pawn: [How We Test Your Gold](https://cash-4-gold.co.za/blog/how-we-test-your-gold.html), [How Gold Prices Are Calculated](https://cash-4-gold.co.za/blog/how-gold-prices-are-calculated.html), [Pawning vs Selling](https://cash-4-gold.co.za/blog/pawning-vs-selling.html)
+Full index: https://cash-4-gold.co.za/blog/ (13 guides)
+
+Selling & pricing: [How We Test Your Gold](https://cash-4-gold.co.za/blog/how-we-test-your-gold.html), [How Gold Prices Are Calculated](https://cash-4-gold.co.za/blog/how-gold-prices-are-calculated.html), [The Gold Price Today](https://cash-4-gold.co.za/blog/gold-price-today-zar.html), [How to Spot Fake Gold](https://cash-4-gold.co.za/blog/how-to-spot-fake-gold.html), [Sell Krugerrands](https://cash-4-gold.co.za/blog/sell-krugerrands.html), [Silver, Diamonds & Bullion](https://cash-4-gold.co.za/blog/silver-diamonds-bullion.html)
+
+Pawning: [Pawning vs Selling](https://cash-4-gold.co.za/blog/pawning-vs-selling.html), [Documents You Need](https://cash-4-gold.co.za/blog/what-documents-do-you-need.html), [How Pawn Loans Work](https://cash-4-gold.co.za/blog/how-pawn-loans-work.html), [If You Can't Repay a Pawn Loan](https://cash-4-gold.co.za/blog/cant-repay-pawn-loan.html)
+
+High-value & local: [How Much Is My Rolex Worth?](https://cash-4-gold.co.za/blog/how-much-is-my-rolex-worth.html), [Pawning a Car Still on Finance](https://cash-4-gold.co.za/blog/pawn-car-still-on-finance.html), [Free Collection Across Gauteng](https://cash-4-gold.co.za/blog/free-collection-gauteng.html)
+
+## Service areas
+
+Shop at 20 6th Street, Delarey, Johannesburg; free collection across greater Johannesburg and Gauteng. Area pages: [Roodepoort](https://cash-4-gold.co.za/areas/roodepoort.html), [Krugersdorp](https://cash-4-gold.co.za/areas/krugersdorp.html), [Randburg](https://cash-4-gold.co.za/areas/randburg.html), [Soweto](https://cash-4-gold.co.za/areas/soweto.html), [Sandton](https://cash-4-gold.co.za/areas/sandton.html); full list at https://cash-4-gold.co.za/areas/
