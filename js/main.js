@@ -29,38 +29,75 @@
     });
   });
 
-  /* ---------- Indicative gold rates (linked to daily spot) ---------- */
-  var SPOT_24K_ZAR_G = 1235; // updated with the daily gold spot price (ZAR per gram, 24ct)
+  /* ---------- Indicative gold rates (live spot, cached fallback) ---------- */
+  var SPOT_24K_ZAR_G = 2181; // fallback ZAR/g 24ct — auto-replaced by live spot when the feed loads
+  var spotState = { zarG24: SPOT_24K_ZAR_G, live: false, oz: 0, zar: 0, at: null };
+  var runCalc = null;
 
   function perGram(karat) {
-    return SPOT_24K_ZAR_G * (karat / 24);
+    return spotState.zarG24 * (karat / 24);
   }
   function fmtR(v) {
     return "R" + Math.round(v).toLocaleString("en-ZA");
   }
-
-  /* deterministic pseudo-delta so the strip is stable within a day */
-  var day = Math.floor(Date.now() / 86400000);
-  function delta(karat) {
-    var s = Math.sin(day * (karat + 3)) * 10000;
-    var f = s - Math.floor(s);
-    return ((f - 0.45) * 2.4).toFixed(1);
+  function sastTime(d) {
+    try {
+      return new Intl.DateTimeFormat("en-ZA", {
+        hour: "2-digit", minute: "2-digit", timeZone: "Africa/Johannesburg"
+      }).format(d);
+    } catch (e) { return ""; }
   }
 
-  var tickers = document.querySelectorAll("[data-karat]");
-  if (tickers.length) {
+  function renderTicker() {
+    var tickers = document.querySelectorAll("[data-karat]");
+    if (!tickers.length) return;
     tickers.forEach(function (el) {
       var k = parseFloat(el.getAttribute("data-karat"));
       var v = el.querySelector(".ticker-value");
       var d = el.querySelector(".ticker-delta");
       if (v) v.innerHTML = fmtR(perGram(k)) + ' <small>/ g</small>';
       if (d) {
-        var num = parseFloat(delta(k));
-        d.textContent = (num >= 0 ? "+" : "") + num.toFixed(1) + "% today";
-        d.className = "ticker-delta " + (num >= 0 ? "delta-up" : "delta-down");
+        if (spotState.live) {
+          d.textContent = "live spot";
+          d.className = "ticker-delta delta-live";
+        } else {
+          d.textContent = "indicative";
+          d.className = "ticker-delta delta-static";
+        }
       }
     });
+    if (spotState.live) {
+      var note = document.querySelector(".ticker-note");
+      if (note) {
+        note.textContent =
+          "Spot $" + Math.round(spotState.oz).toLocaleString("en-US") + "/oz · USD/ZAR " +
+          spotState.zar.toFixed(2) + " · updated " + sastTime(spotState.at) + " SAST. " +
+          "Indicative rates per gram — final offers confirmed after testing and weighing in front of you.";
+      }
+    }
   }
+
+  /* Live spot: gold USD/oz + USD/ZAR, both free and keyless; falls back silently. */
+  (function refreshSpot() {
+    function get(url) {
+      return fetch(url).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
+    }
+    Promise.all([
+      get("https://api.gold-api.com/price/XAU"),
+      get("https://open.er-api.com/v6/latest/USD")
+    ]).then(function (res) {
+      var oz = res[0] && res[0].price;
+      var zar = res[1] && res[1].rates && res[1].rates.ZAR;
+      if (!oz || !zar || oz <= 0 || zar <= 0) return;
+      var zpg = (oz / 31.1034768) * zar;
+      if (!isFinite(zpg) || zpg <= 0) return;
+      spotState = { zarG24: zpg, live: true, oz: oz, zar: zar, at: new Date() };
+      renderTicker();
+      if (runCalc) runCalc(false);
+    });
+  })();
+
+  renderTicker();
 
   /* ---------- Gold calculator ---------- */
   var calcForm = document.getElementById("calcForm");
@@ -70,7 +107,14 @@
     var amountEl = document.getElementById("calcAmount");
     var rangeEl = document.getElementById("calcRange");
 
-    function runCalc() {
+    var calcTimer = null;
+    function trackCalc(k, w) {
+      if (calcTimer) clearTimeout(calcTimer);
+      calcTimer = setTimeout(function () {
+        if (window.c4gTrack) window.c4gTrack("calculator_used", { karat: k, grams: w });
+      }, 1500);
+    }
+    runCalc = function (track) {
       var k = parseFloat(karatSel.value);
       var w = parseFloat(weightIn.value);
       if (!w || w <= 0) {
@@ -82,18 +126,11 @@
       amountEl.textContent = fmtR(est);
       rangeEl.textContent =
         "Indicative range: " + fmtR(est * 0.92) + " – " + fmtR(est * 0.99);
-      trackCalc(k, w);
-    }
-    var calcTimer = null;
-    function trackCalc(k, w) {
-      if (calcTimer) clearTimeout(calcTimer);
-      calcTimer = setTimeout(function () {
-        if (window.c4gTrack) window.c4gTrack("calculator_used", { karat: k, grams: w });
-      }, 1500);
-    }
-    karatSel.addEventListener("change", runCalc);
-    weightIn.addEventListener("input", runCalc);
-    runCalc();
+      if (track !== false) trackCalc(k, w);
+    };
+    karatSel.addEventListener("change", function () { runCalc(true); });
+    weightIn.addEventListener("input", function () { runCalc(true); });
+    runCalc(false);
   }
 
   /* ---------- Enquiry form → WhatsApp ---------- */
